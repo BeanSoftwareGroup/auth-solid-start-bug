@@ -1,30 +1,22 @@
 # SolidStart
 
-Everything you need to build a Solid project, powered by [`solid-start`](https://start.solidjs.com);
+This is a minimum reproduction repository for a bug in `@auth/solid-start`.
 
-## Creating a project
+```
+An error occured while server rendering /:
 
-```bash
-# create a new project in the current directory
-npm init solid@latest
-
-# create a new project in my-app
-npm init solid@latest my-app
+	Cannot find module '/Users/username/Code/auth-solid-start-bug/node_modules/.pnpm/@auth+solid-start@0.1.8_solid-js@1.8.5_solid-start@0.3.10/node_modules/@auth/solid-start/chunk-HXRSFH6L.js' imported from /Users/hans/Code/auth-solid-start-bug/node_modules/.pnpm/@auth+solid-start@0.1.8_solid-js@1.8.5_solid-start@0.3.10/node_modules/@auth/solid-start/index.js
+Error: Cannot find module '/Users/hans/Code/auth-solid-start-bug/node_modules/.pnpm/@auth+solid-start@0.1.8_solid-js@1.8.5_solid-start@0.3.10/node_modules/@auth/solid-start/chunk-HXRSFH6L.js' imported from /Users/hans/Code/auth-solid-start-bug/node_modules/.pnpm/@auth+solid-start@0.1.8_solid-js@1.8.5_solid-start@0.3.10/node_modules/@auth/solid-start/index.js
+    at new NodeError (node:internal/errors:405:5)
+    at finalizeResolution (node:internal/modules/esm/resolve:224:11)
+    at moduleResolve (node:internal/modules/esm/resolve:837:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1035:11)
+    at DefaultModuleLoader.resolve (node:internal/modules/esm/loader:269:12)
+    at DefaultModuleLoader.getModuleJob (node:internal/modules/esm/loader:153:32)
+    at ModuleWrap.<anonymous> (node:internal/modules/esm/module_job:76:33)
+    at link (node:internal/modules/esm/module_job:75:36
 ```
 
-## Developing
+This is a bare-bones solid-start project such as you would create with `pnpm create solid`.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-Solid apps are built with _adapters_, which optimise your project for deployment to different environments.
-
-By default, `npm run build` will generate a Node app that you can run with `npm start`. To use a different adapter, add it to the `devDependencies` in `package.json` and specify in your `vite.config.js`.
+The only change that has been made is to import the module `@auth/solid-start` in entry-server.tsx.

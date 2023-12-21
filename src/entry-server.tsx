@@ -3,6 +3,7 @@ import {
   renderAsync,
   StartServer,
 } from "solid-start/entry-server";
+// The following import breaks the build
 import '@auth/solid-start'
 
 export default createHandler(
